@@ -20,7 +20,7 @@
     </thead>
 
     {include file="CRM/common/pager.tpl" location="top"} 
-    
+
     {foreach from=$rows item=row}
       <tr  class="{cycle values="odd-row,even-row"} {$row.class} crm-stateProvince ">
         <td class="crm-stateProvince-name">{ts}{$row.name}{/ts}</td>        
@@ -37,4 +37,35 @@
     {/if}
 </div>
 
+{/if}
+{if $pager and ( $pager->_totalPages > 1 )}
+{literal}
+<script type="text/javascript">
+  var totalPages = {/literal}{$pager->_totalPages}{literal};
+  cj( function ( ) {
+    cj("#crm-container .crm-pager input.form-submit").click( function( ) {
+      submitPagerData( this );
+    }); 
+  });
+ 
+  function submitPagerData( el ) {
+      var urlParams= '';
+      var jumpTo   = cj(el).parent( ).children('input[type=text]').val( );
+      if ( parseInt(jumpTo)== "Nan" ) jumpTo = 1;
+      if ( jumpTo > totalPages ) jumpTo = totalPages;
+      {/literal} 
+      {foreach from=$pager->_linkData item=val key=k }
+      {if $k neq 'crmPID' && $k neq 'force' && $k neq 'q' } 
+      {literal}
+        urlParams += '&{/literal}{$k}={$val}{literal}';
+      {/literal}
+      {/if}
+      {/foreach}
+      {literal}
+      urlParams += '&crmPID='+parseInt(jumpTo);
+      var submitUrl = {/literal}'{crmURL p="civicrm/admin/stateprovince" reset="1" action="browse"}'{literal};
+      document.location = submitUrl+urlParams;
+  }
+</script>
+{/literal}
 {/if}

@@ -27,16 +27,16 @@ class CRM_Countrymanager_BAO_StateProvince extends CRM_Countrymanager_DAO_StateP
 
   }
 
-	static function getListStateProvince($idStateProvince = 0) {
+	static function getListStateProvince($country_id = 0) {
 		$params = array();
 			$sql = "
 			SELECT * FROM `civicrm_state_province`
 		";
 
-		if($idStateProvince != 0) {
-			$sql .= "WHERE	id = %1
+		if($country_id != 0) {
+			$sql .= "WHERE	country_id = %1
 			";
-			$params[1] = array($fieldId, 'Integer');	
+			$params[1] = array($country_id, 'Integer');	
 		}		
 
 		$sql .= "ORDER BY name

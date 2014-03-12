@@ -35,7 +35,14 @@ class CRM_Admin_Page_Country extends CRM_Core_Page_Basic {
           'url' => 'civicrm/admin/country',
           'qs' => 'action=update&id=%%id%%&reset=1',
           'title' => ts('Edit Country'),
-        ),               
+        ),
+        "states" =>
+        array(
+          'name' => ts('Go to the states'),
+          'url' => 'civicrm/admin/stateprovince',
+          'qs' => 'country_id=%%id%%&reset=1',
+          'title' => ts('Edit Country'),
+        ),
       );
     }
     return self::$_links;
@@ -46,7 +53,10 @@ class CRM_Admin_Page_Country extends CRM_Core_Page_Basic {
   }
 
   function browse() {    
-    $rows = CRM_Countrymanager_BAO_Country::getListCountry();    
+    $region_id = CRM_Utils_Request::retrieve('region_id', 'Integer', CRM_Core_DAO::$_nullObject) ;
+    
+
+    $rows = CRM_Countrymanager_BAO_Country::getListCountry($region_id);    
 
     foreach ($rows as $key => $value) {
       $rows[$key]['action'] = CRM_Core_Action::formLink(self::links(), NULL,

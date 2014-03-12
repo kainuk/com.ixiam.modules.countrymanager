@@ -11,7 +11,7 @@ class CRM_Admin_Page_StateProvince extends CRM_Core_Page_Basic {
    * @static
    */
   static $_links = NULL;
-  protected $_rowCount = 100;
+  public $_rowCount = 100;
   protected $_pager;
   /**
    * Get BAO Name
@@ -47,7 +47,13 @@ class CRM_Admin_Page_StateProvince extends CRM_Core_Page_Basic {
   }
 
   function browse() {    
-    $rows = CRM_Countrymanager_BAO_StateProvince::getListStateProvince();    
+    $country_id = CRM_Utils_Request::retrieve('country_id', 'Integer', CRM_Core_DAO::$_nullObject) ;
+    $crmRowCount = CRM_Utils_Request::retrieve('crmRowCount', 'Integer', CRM_Core_DAO::$_nullObject);
+    if($crmRowCount >= 1){
+      $this->_rowCount = $crmRowCount;
+    }
+
+    $rows = CRM_Countrymanager_BAO_StateProvince::getListStateProvince($country_id);    
     foreach ($rows as $key => $value) {
       $rows[$key]['action'] = CRM_Core_Action::formLink(self::links(), NULL,
         array('id' => $value['id'])

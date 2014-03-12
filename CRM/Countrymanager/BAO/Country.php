@@ -27,15 +27,15 @@ class CRM_Countrymanager_BAO_Country extends CRM_Countrymanager_DAO_Country{
 
   }
 
-	static function getListCountry($idCountry = 0) {
+	static function getListCountry($region_id = 0) {
 		$params = array();
 			$sql = "
 			SELECT * FROM `civicrm_country`
 		";
 
-		if($idCountry != 0) {
-			$sql .= "WHERE	id = %1";
-			$params[1] = array($fieldId, 'Integer');	
+		if($region_id != 0) {
+			$sql .= "WHERE	region_id = %1";
+			$params[1] = array($region_id, 'Integer');	
 		}		
 
 			$dao = CRM_Core_DAO::executeQuery($sql, $params);
