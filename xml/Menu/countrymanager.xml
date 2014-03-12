@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<menu>
+  <item>
+    <path>civicrm/admin/worldregion</path>
+    <page_callback>CRM_Admin_Page_WorldRegion</page_callback>
+    <title>World Region</title>
+    <access_arguments>access CiviContribute</access_arguments>
+  </item>
+</menu>
