@@ -47,19 +47,19 @@ class CRM_Countrymanager_DAO_StateProvince extends CRM_Core_DAO {
 	 */
 	static $_log = false;
 	/**
-	 * Contact Type ID
+	 * State Province ID
 	 *
 	 * @var int unsigned
 	 */
 	public $id;
 	/**
-	 * Internal name of Contact Type (or Subtype).
+	 * Internal name of State Province.
 	 *
 	 * @var string
 	 */
 	public $name;
 	/**
-	 * localized Name of Contact Type.
+	 * localized Name of State Province.
 	 *
 	 * @var string
 	 */	

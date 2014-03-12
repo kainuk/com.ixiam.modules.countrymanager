@@ -47,13 +47,13 @@ class CRM_Countrymanager_DAO_WorldRegion extends CRM_Core_DAO {
 	 */
 	static $_log = false;
 	/**
-	 * Contact Type ID
+	 * World Region ID
 	 *
 	 * @var int unsigned
 	 */
 	public $id;
 	/**
-	 * Internal name of Contact Type (or Subtype).
+	 * Internal name of World Region.
 	 *
 	 * @var string
 	 */

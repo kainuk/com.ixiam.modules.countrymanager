@@ -35,14 +35,7 @@ class CRM_Admin_Page_StateProvince extends CRM_Core_Page_Basic {
           'url' => 'civicrm/admin/stateprovince',
           'qs' => 'action=update&id=%%id%%&reset=1',
           'title' => ts('Edit World Region'),
-        ),       
-        CRM_Core_Action::DELETE =>
-        array(
-          'name' => ts('Delete'),
-          'url' => 'civicrm/admin/stateprovince',
-          'qs' => 'action=delete&id=%%id%%',
-          'title' => ts('Delete World Region'),
-        ),
+        ),               
       );
     }
     return self::$_links;

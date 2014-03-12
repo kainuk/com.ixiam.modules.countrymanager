@@ -35,14 +35,7 @@ class CRM_Admin_Page_Country extends CRM_Core_Page_Basic {
           'url' => 'civicrm/admin/country',
           'qs' => 'action=update&id=%%id%%&reset=1',
           'title' => ts('Edit Country'),
-        ),       
-        CRM_Core_Action::DELETE =>
-        array(
-          'name' => ts('Delete'),
-          'url' => 'civicrm/admin/country',
-          'qs' => 'action=delete&id=%%id%%',
-          'title' => ts('Delete Country'),
-        ),
+        ),               
       );
     }
     return self::$_links;

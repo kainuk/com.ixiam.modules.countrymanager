@@ -13,17 +13,14 @@
     <table id="options" class="display">
     <thead>
     <tr>
-        <th>{ts}Name{/ts}</th>
-        <th>{ts}Id{/ts}</th>
+        <th>{ts}Name{/ts}</th>        
         <th id="nosort">{ts}Description{/ts}</th>
         <th></th>
     </tr>
     </thead>
     {foreach from=$rows item=row}
       <tr id="row_{$row.id}" class="{cycle values="odd-row,even-row"} {$row.class} crm-contactType ">
-        <td class="crm-stateProvince-name">{ts}{$row.name}{/ts}</td>
-        <td class="crm-stateProvince-name">{ts}{$row.id}{/ts}</td>        
-        
+        <td class="crm-stateProvince-name">{ts}{$row.name}{/ts}</td>        
         <td>{$row.action|replace:'xx':$row.id}</td>
     </tr>
     {/foreach}

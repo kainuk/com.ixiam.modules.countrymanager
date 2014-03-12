@@ -47,22 +47,17 @@ class CRM_Countrymanager_DAO_Country extends CRM_Core_DAO {
 	 */
 	static $_log = false;
 	/**
-	 * Contact Type ID
+	 * Country ID
 	 *
 	 * @var int unsigned
 	 */
 	public $id;
 	/**
-	 * Internal name of Contact Type (or Subtype).
+	 * Internal name of Country.
 	 *
 	 * @var string
 	 */
-	public $name;
-	/**
-	 * localized Name of Country.
-	 *
-	 * @var string
-	 */	
+	public $name;	
 
 	public $iso_code;
 
@@ -124,7 +119,14 @@ class CRM_Countrymanager_DAO_Country extends CRM_Core_DAO {
 									'name' => 'region_id',
 									'type' => CRM_Utils_Type::T_INT,
 									'title' => ts('Name') ,									
-							) ,							
+							) ,
+							'iso_code' => array(
+									'name' => 'iso_code',
+									'type' => CRM_Utils_Type::T_STRING,
+									'title' => ts('Name') ,
+									'maxlength' => 2,									
+							) ,		
+
 					);
 			}
 			return self::$_fields;

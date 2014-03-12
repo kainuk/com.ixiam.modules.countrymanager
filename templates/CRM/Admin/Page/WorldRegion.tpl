@@ -13,8 +13,7 @@
     <table id="options" class="display">
     <thead>
     <tr>
-        <th>{ts}Name{/ts}</th>
-        <th>{ts}Id{/ts}</th>
+        <th>{ts}Name{/ts}</th>        
         <th id="nosort">{ts}Description{/ts}</th>
         <th></th>
     </tr>
