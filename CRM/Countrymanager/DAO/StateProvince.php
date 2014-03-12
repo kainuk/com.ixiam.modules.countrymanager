@@ -63,6 +63,8 @@ class CRM_Countrymanager_DAO_StateProvince extends CRM_Core_DAO {
 	 *
 	 * @var string
 	 */	
+	public $country_id;
+
 	function __construct()
 	{
 			$this->__table = 'civicrm_state_province';
@@ -104,7 +106,12 @@ class CRM_Countrymanager_DAO_StateProvince extends CRM_Core_DAO {
 									'title' => ts('Name') ,
 									'maxlength' => 64,
 									'size' => CRM_Utils_Type::BIG,
-							) ,							
+							) ,
+							'country_id' => array(
+									'name' => 'country_id',
+									'type' => CRM_Utils_Type::T_INT,
+									'title' => ts('Name') ,									
+							) ,									
 					);
 			}
 			return self::$_fields;

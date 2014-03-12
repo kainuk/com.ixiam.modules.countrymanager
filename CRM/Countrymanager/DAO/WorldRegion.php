@@ -59,7 +59,7 @@ class CRM_Countrymanager_DAO_WorldRegion extends CRM_Core_DAO {
 	 */
 	public $name;
 	/**
-	 * localized Name of Contact Type.
+	 * localized Name of World Region.
 	 *
 	 * @var string
 	 */	

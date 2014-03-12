@@ -47,10 +47,17 @@ class CRM_Admin_Form_Country extends CRM_Admin_Form {
    */
   public function buildQuickForm() {
     parent::buildQuickForm();    
+      
+    $worldRegions = CRM_Countrymanager_BAO_WorldRegion::getListWorldRegion();
     
+    $worldRegionsSelect = array();
+    foreach ($worldRegions as $key => $value) {
+      $worldRegionsSelect[$value["id"]] = $value["name"];
+    }    
+
     $this->add('text', 'name', ts('Name country region'));
-    
-    }
+    $this->add('select', 'region_id', 'World Regions', $worldRegionsSelect);
+  }
 
   /**
    * global form rule

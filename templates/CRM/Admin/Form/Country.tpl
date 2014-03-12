@@ -39,6 +39,9 @@
 		<td>
 			{$form.name.label} {$form.name.html}
 		</td>
+		<td>
+			{$form.region_id.label} {$form.region_id.html}
+		</td>
 
 	</tr>
 </table>

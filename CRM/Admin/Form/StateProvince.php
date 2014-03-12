@@ -47,9 +47,18 @@ class CRM_Admin_Form_StateProvince extends CRM_Admin_Form {
    */
   public function buildQuickForm() {
     parent::buildQuickForm();    
+
+    $countries = CRM_Countrymanager_BAO_Country::getListCountry();
+    
+    $countriesSelect = array();
+    foreach ($countries as $key => $value) {
+      $countriesSelect[$value["id"]] = $value["name"];
+    }    
+
     
     $this->add('text', 'name', ts('Name State/province region'));
-    
+    $this->add('select', 'country_id', 'Country', $countriesSelect);
+
     }
 
   /**

@@ -59,10 +59,25 @@ class CRM_Countrymanager_DAO_Country extends CRM_Core_DAO {
 	 */
 	public $name;
 	/**
-	 * localized Name of Contact Type.
+	 * localized Name of Country.
 	 *
 	 * @var string
 	 */	
+
+	public $iso_code;
+
+	public $country_code;
+
+	public $address_format_id;
+
+	public $idd_prefix;
+
+	public $ndd_prefix;		
+
+	public $region_id;	
+
+	public $is_province_abbreviated;	
+
 	function __construct()
 	{
 			$this->__table = 'civicrm_country';
@@ -104,6 +119,11 @@ class CRM_Countrymanager_DAO_Country extends CRM_Core_DAO {
 									'title' => ts('Name') ,
 									'maxlength' => 64,
 									'size' => CRM_Utils_Type::BIG,
+							) ,							
+							'region_id' => array(
+									'name' => 'region_id',
+									'type' => CRM_Utils_Type::T_INT,
+									'title' => ts('Name') ,									
 							) ,							
 					);
 			}
