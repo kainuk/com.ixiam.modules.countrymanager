@@ -26,7 +26,7 @@ class CRM_Admin_Page_WorldRegion extends CRM_Core_Page_Basic {
    *
    * @return array (reference) of action links
    */
-  function &links() {
+  function &links() {    
     if (!(self::$_links)) {
       self::$_links = array( 
         CRM_Core_Action::UPDATE =>
@@ -49,10 +49,12 @@ class CRM_Admin_Page_WorldRegion extends CRM_Core_Page_Basic {
     // if (!$action) {      
     //   $this->browse();
     // }
+
     return parent::run();
   }
 
   function browse() {    
+    CRM_Core_Error::debug(get_defined_vars(oid));
     $rows = CRM_Countrymanager_BAO_WorldRegion::getListWorldRegion();
     foreach ($rows as $key => $value) {
       $rows[$key]['action'] = CRM_Core_Action::formLink(self::links(), NULL,

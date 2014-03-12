@@ -17,7 +17,7 @@
         <th id="nosort">{ts}Description{/ts}</th>
         <th></th>
     </tr>
-    </thead>
+    </thead> 
     {foreach from=$rows item=row}
       <tr id="row_{$row.id}" class="{cycle values="odd-row,even-row"} {$row.class} crm-contactType ">
         <td class="crm-country-name">{ts}{$row.name}{/ts}</td>       

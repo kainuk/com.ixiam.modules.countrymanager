@@ -18,14 +18,15 @@
         <th></th>
     </tr>
     </thead>
-    {foreach from=$rows item=row}
-      <tr id="row_{$row.id}" class="{cycle values="odd-row,even-row"} {$row.class} crm-contactType ">
+    
+    {foreach from=$rows item=row}  
+        <tr id="row_{$row.id}" class="{cycle values="odd-row,even-row"} {$row.class} crm-contactType ">
         <td class="crm-worldRegion-name">{ts}{$row.name}{/ts}</td>
-        <td class="crm-worldRegion-name">{ts}{$row.id}{/ts}</td>        
-        
+        <td class="crm-worldRegion-name">{ts}{$row.id}{/ts}</td>                
         <td>{$row.action|replace:'xx':$row.id}</td>
     </tr>
     {/foreach}
+    
     </table>
     {/strip}
     {if $action ne 1 and $action ne 2}

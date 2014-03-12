@@ -34,9 +34,14 @@ class CRM_Countrymanager_BAO_StateProvince extends CRM_Countrymanager_DAO_StateP
 		";
 
 		if($idStateProvince != 0) {
-			$sql .= "WHERE	id = %1";
+			$sql .= "WHERE	id = %1
+			";
 			$params[1] = array($fieldId, 'Integer');	
 		}		
+
+		$sql .= "ORDER BY name
+		";
+		
 
 			$dao = CRM_Core_DAO::executeQuery($sql, $params);
 			$stateProvince = array();

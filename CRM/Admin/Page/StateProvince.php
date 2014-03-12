@@ -11,7 +11,8 @@ class CRM_Admin_Page_StateProvince extends CRM_Core_Page_Basic {
    * @static
    */
   static $_links = NULL;
-
+  protected $_rowCount = 100;
+  protected $_pager;
   /**
    * Get BAO Name
    *
@@ -47,13 +48,36 @@ class CRM_Admin_Page_StateProvince extends CRM_Core_Page_Basic {
 
   function browse() {    
     $rows = CRM_Countrymanager_BAO_StateProvince::getListStateProvince();    
-
     foreach ($rows as $key => $value) {
       $rows[$key]['action'] = CRM_Core_Action::formLink(self::links(), NULL,
         array('id' => $value['id'])
       );
     }
-    $this->assign('rows', $rows);
+    $crmPID = CRM_Utils_Request::retrieve('crmPID', 'Integer', CRM_Core_DAO::$_nullObject) ;
+
+    if($crmPID >= 1) {
+      $crmPID = $crmPID - 1 ;
+    }
+
+    $rowsToShow = array();
+
+    $rowsToShow = array_slice($rows, $this->_rowCount*$crmPID, $this->_rowCount);    
+    
+    $this->assign('rows', $rowsToShow);
+
+    $params = array(
+      'total' => count($rows),
+      'rowCount' => $this->_rowCount,
+      'status' => ts('Records %%StatusMessage%%'),
+      'buttonBottom' => 'PagerBottomButton',
+      'buttonTop' => 'PagerTopButton',
+      'pageID' => "civicrm/admin/stateprovince?action=browse&force=1",
+    );
+    
+    $pager = new CRM_Utils_Pager($params);
+
+    $this->assign_by_ref('pager', $pager);
+
   }
 
   /**
