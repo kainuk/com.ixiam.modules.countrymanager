@@ -1,13 +1,13 @@
 <?php
 
-class CRM_Countrymanager_DAO_WorldRegion extends CRM_Core_DAO {
+class CRM_Countrymanager_DAO_Country extends CRM_Core_DAO {
 	/**
 	 * static instance to hold the table name
 	 *
 	 * @var string
 	 * @static
 	 */
-	static $_tableName = 'civicrm_worldregion';
+	static $_tableName = 'civicrm_country';
 	/**
 	 * static instance to hold the field values
 	 *
@@ -65,7 +65,7 @@ class CRM_Countrymanager_DAO_WorldRegion extends CRM_Core_DAO {
 	 */	
 	function __construct()
 	{
-			$this->__table = 'civicrm_worldregion';
+			$this->__table = 'civicrm_country';
 			parent::__construct();
 	}
 	/**
@@ -78,7 +78,7 @@ class CRM_Countrymanager_DAO_WorldRegion extends CRM_Core_DAO {
 	{
 			if (!(self::$_links)) {
 					self::$_links = array(
-							'parent_id' => 'civicrm_worldregion:id',
+							'parent_id' => 'civicrm_country:id',
 					);
 			}
 			return self::$_links;
@@ -145,7 +145,7 @@ class CRM_Countrymanager_DAO_WorldRegion extends CRM_Core_DAO {
 					foreach($fields as $name => $field) {
 							if (CRM_Utils_Array::value('import', $field)) {
 									if ($prefix) {
-											self::$_import['worldregion'] = & $fields[$name];
+											self::$_import['country'] = & $fields[$name];
 									} else {
 											self::$_import[$name] = & $fields[$name];
 									}
@@ -169,7 +169,7 @@ class CRM_Countrymanager_DAO_WorldRegion extends CRM_Core_DAO {
 					foreach($fields as $name => $field) {
 							if (CRM_Utils_Array::value('export', $field)) {
 									if ($prefix) {
-											self::$_export['worldregion'] = & $fields[$name];
+											self::$_export['country'] = & $fields[$name];
 									} else {
 											self::$_export[$name] = & $fields[$name];
 									}

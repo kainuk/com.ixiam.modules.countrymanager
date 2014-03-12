@@ -9,13 +9,13 @@
   <item>
     <path>civicrm/admin/country</path>
     <page_callback>CRM_Admin_Page_Country</page_callback>
-    <title>World Region</title>
+    <title>Country</title>
     <access_arguments>administer CiviCRM</access_arguments>
   </item>
   <item>
     <path>civicrm/admin/stateprovince</path>
     <page_callback>CRM_Admin_Page_StateProvince</page_callback>
-    <title>World Region</title>
+    <title>State Province</title>
     <access_arguments>administer CiviCRM</access_arguments>
   </item>
 </menu>

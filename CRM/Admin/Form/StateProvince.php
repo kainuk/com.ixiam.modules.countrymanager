@@ -37,7 +37,7 @@
  * This class generates form components for ContactSub Type
  *
  */
-class CRM_Admin_Form_WorldRegion extends CRM_Admin_Form {
+class CRM_Admin_Form_StateProvince extends CRM_Admin_Form {
 
   /**
    * Function to build the form
@@ -48,7 +48,7 @@ class CRM_Admin_Form_WorldRegion extends CRM_Admin_Form {
   public function buildQuickForm() {
     parent::buildQuickForm();    
     
-    $this->add('text', 'name', ts('Name world region'));
+    $this->add('text', 'name', ts('Name State/province region'));
     
     }
 
@@ -79,7 +79,7 @@ class CRM_Admin_Form_WorldRegion extends CRM_Admin_Form {
   public function postProcess() {
     CRM_Utils_System::flushCache();
     if ($this->_action & CRM_Core_Action::DELETE) {    
-        CRM_Core_Session::setStatus(ts('Actually you can delete World regions.'));    
+        CRM_Core_Session::setStatus(ts('Actually you can delete state/province regions.'));    
       return;
     }
     // store the submitted values in an array
@@ -95,9 +95,9 @@ class CRM_Admin_Form_WorldRegion extends CRM_Admin_Form {
       //$params['name'] = ucfirst(CRM_Utils_String::munge($params['label']));
     }
 
-    $worldRegion = CRM_Countrymanager_BAO_WorldRegion::addAndSave($params);
-    CRM_Core_Session::setStatus(ts("The Worl region '%1' has been saved.",
-        array(1 => $worldRegion->name)
+    $stateProvince = CRM_Countrymanager_BAO_StateProvince::addAndSave($params);
+    CRM_Core_Session::setStatus(ts("The state/province region '%1' has been saved.",
+        array(1 => $stateProvince->name)
       ));
 
     

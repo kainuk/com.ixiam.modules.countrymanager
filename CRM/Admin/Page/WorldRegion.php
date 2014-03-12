@@ -61,10 +61,6 @@ class CRM_Admin_Page_WorldRegion extends CRM_Core_Page_Basic {
 
   function browse() {    
     $rows = CRM_Countrymanager_BAO_WorldRegion::getListWorldRegion();
-    $params = array();
-    $defaults = array();
-    CRM_Core_Error::debug(CRM_Countrymanager_BAO_WorldRegion::retrieve($params,$defaults));
-
     foreach ($rows as $key => $value) {
       $rows[$key]['action'] = CRM_Core_Action::formLink(self::links(), NULL,
         array('id' => $value['id'])

@@ -53,10 +53,3 @@
 {/if}
 
 
-
-<!-- Resume actions
-add  1
-update 
-delete 8
-
--->

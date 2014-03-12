@@ -23,9 +23,9 @@
  | see the CiviCRM license FAQ at http://civicrm.org/licensing        |
  +--------------------------------------------------------------------+
 *}
-{* this template is used for adding/editing World Region  *}
+{* this template is used for adding/editing Country  *}
 
-<h3>{if $action eq 1}{ts}New World Region{/ts}{elseif $action eq 2}{ts}Edit World region{/ts}{else}{ts}Delete World Region{/ts}{/if}</h3>
+<h3>{if $action eq 1}{ts}New Country{/ts}{elseif $action eq 2}{ts}Edit Country{/ts}{else}{ts}Delete Country{/ts}{/if}</h3>
 <div class="crm-block crm-form-block crm-contact-type-form-block">
 {if $action eq 8}
   <div class="messages status">
@@ -52,11 +52,3 @@
     </div>
 {/if}
 
-
-
-<!-- Resume actions
-add  1
-update 
-delete 8
-
--->

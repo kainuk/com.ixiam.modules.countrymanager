@@ -1,49 +1,49 @@
 <?php
 
-class CRM_Countrymanager_BAO_WorldRegion extends CRM_Countrymanager_DAO_WorldRegion{
+class CRM_Countrymanager_BAO_StateProvince extends CRM_Countrymanager_DAO_StateProvince{
 	
 
 
 	static function retrieve(&$params, &$defaults) {
-    $worldRegion = new CRM_Countrymanager_DAO_WorldRegion();
-    $worldRegion->copyValues($params);
-    if ($worldRegion->find(TRUE)) {
-      CRM_Core_DAO::storeValues($worldRegion, $defaults);
-      return $worldRegion;
+    $stateProvince = new CRM_Countrymanager_DAO_StateProvince();
+    $stateProvince->copyValues($params);
+    if ($stateProvince->find(TRUE)) {
+      CRM_Core_DAO::storeValues($stateProvince, $defaults);
+      return $stateProvince;
     }
     return NULL;
   }
   static function addAndSave($params) {
 
-    $worldRegion = new CRM_Countrymanager_DAO_WorldRegion();
-    $worldRegion->copyValues($params);
-    $worldRegion->save();
+    $stateProvince = new CRM_Countrymanager_DAO_StateProvince();
+    $stateProvince->copyValues($params);
+    $stateProvince->save();
 
-    CRM_Core_DAO::storeValues($worldRegion, $defaults);
+    CRM_Core_DAO::storeValues($stateProvince, $defaults);
 
-    if ($worldRegion->find(TRUE)) {      
-      return $worldRegion;
+    if ($stateProvince->find(TRUE)) {      
+      return $stateProvince;
     }
 
   }
 
-	static function getListWorldRegion($idWorldRegion = 0) {
+	static function getListStateProvince($idStateProvince = 0) {
 		$params = array();
 			$sql = "
-			SELECT * FROM `civicrm_worldregion`
+			SELECT * FROM `civicrm_state_province`
 		";
 
-		if($idWorldRegion != 0) {
+		if($idStateProvince != 0) {
 			$sql .= "WHERE	id = %1";
 			$params[1] = array($fieldId, 'Integer');	
 		}		
 
 			$dao = CRM_Core_DAO::executeQuery($sql, $params);
-			$worldRegion = array();
+			$stateProvince = array();
 			while($dao->fetch()) {
-				$worldRegion[$dao->id] = array("id" => $dao->id,"name" => $dao->name);				
+				$stateProvince[$dao->id] = array("id" => $dao->id,"name" => $dao->name);				
 		}		
-		return $worldRegion;
+		return $stateProvince;
 	}
   
 }
