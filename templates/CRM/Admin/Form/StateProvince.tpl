@@ -1,5 +1,4 @@
-<?php
-/*
+{*
  +--------------------------------------------------------------------+
  | CiviCRM version 4.3                                                |
  +--------------------------------------------------------------------+
@@ -23,84 +22,41 @@
  | GNU Affero General Public License or the licensing of CiviCRM,     |
  | see the CiviCRM license FAQ at http://civicrm.org/licensing        |
  +--------------------------------------------------------------------+
-*/
+*}
+{* this template is used for adding/editing World Region  *}
 
-/**
- *
- * @package CRM
- * @copyright CiviCRM LLC (c) 2004-2013
- * $Id$
- *
- */
+<h3>{if $action eq 1}{ts}New World Region{/ts}{elseif $action eq 2}{ts}Edit World region{/ts}{else}{ts}Delete World Region{/ts}{/if}</h3>
+<div class="crm-block crm-form-block crm-contact-type-form-block">
+{if $action eq 8}
+  <div class="messages status">
+    <div class="icon inform-icon"></div>
+        {ts}WARNING: {ts}This action cannot be undone.{/ts} {ts}Do you want to continue?{/ts}{/ts}
+    </div>
+{else}
+<div class="crm-submit-buttons">{include file="CRM/common/formButtons.tpl" location="top"}</div>
+<table class="form-layout-compressed">
+	<tr class="crm-contact-type-form-block-label">
+		<td>
+			{$form.name.label} {$form.name.html}
+		</td>
 
-/**
- * This class generates form components for ContactSub Type
- *
- */
-class CRM_Admin_Form_WorldRegion extends CRM_Admin_Form {
+	</tr>
+</table>
+{/if}
 
-  /**
-   * Function to build the form
-   *
-   * @return None
-   * @access public
-   */
-  public function buildQuickForm() {
-    parent::buildQuickForm();    
-    
-    $this->add('text', 'name', ts('Name world region'));
-    
-    }
+<div class="crm-submit-buttons">{include file="CRM/common/formButtons.tpl" location="bottom"}</div>
 
-  /**
-   * global form rule
-   *
-   * @param array $fields  the input form values
-   *
-   * @return true if no errors, else array of errors
-   * @access public
-   * @static
-   */
-  static function formRule($fields, $files, $self) {
-
-    $errors = array();
-
-
-    return empty($errors) ? TRUE : $errors;
-  }
-
-  /**
-   * Function to process the form
-   *
-   * @access public
-   *
-   * @return None
-   */
-  public function postProcess() {
-    CRM_Utils_System::flushCache();
-    if ($this->_action & CRM_Core_Action::DELETE) {    
-        CRM_Core_Session::setStatus(ts('Actually you can delete World regions.'));    
-      return;
-    }
-    // store the submitted values in an array
-    $params = $this->exportValues();
+{if $action ne 1 and $action ne 2 and $action ne 8}
+    <div class="action-link">
+	<a href="{crmURL q="action=add&reset=1"}" class="button"><span><div class="icon add-icon"></div>{ts}Add Region Type{/ts}</span></a>	      
+    </div>
+{/if}
 
 
 
-    if ($this->_action & CRM_Core_Action::UPDATE) {
-      $params['id'] = $this->_id;      
-      
-    }
-    if ($this->_action & CRM_Core_Action::ADD) {
-      //$params['name'] = ucfirst(CRM_Utils_String::munge($params['label']));
-    }
+<!-- Resume actions
+add  1
+update 
+delete 8
 
-    $worldRegion = CRM_Countrymanager_BAO_WorldRegion::addAndSave($params);
-    CRM_Core_Session::setStatus(ts("The Worl region '%1' has been saved.",
-        array(1 => $worldRegion->name)
-      ));
-
-    
-  }
-}
-
+-->
