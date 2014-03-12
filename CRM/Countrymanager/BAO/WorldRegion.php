@@ -2,6 +2,8 @@
 
 class CRM_Countrymanager_BAO_WorldRegion extends CRM_Countrymanager_DAO_WorldRegion{
 	
+
+
 	static function retrieve(&$params, &$defaults) {
     $worldRegion = new CRM_Countrymanager_DAO_WorldRegion();
     $worldRegion->copyValues($params);
@@ -10,6 +12,19 @@ class CRM_Countrymanager_BAO_WorldRegion extends CRM_Countrymanager_DAO_WorldReg
       return $worldRegion;
     }
     return NULL;
+  }
+  static function add($params) {
+
+    $worldRegion = new CRM_Countrymanager_DAO_WorldRegion();
+    $worldRegion->copyValues($params);
+    $worldRegion->save();
+
+    CRM_Core_DAO::storeValues($worldRegion, $defaults);
+
+    if ($worldRegion->find(TRUE)) {      
+      return $worldRegion;
+    }
+
   }
 
 	static function getListWorldRegion($idWorldRegion = 0) {
@@ -27,7 +42,6 @@ class CRM_Countrymanager_BAO_WorldRegion extends CRM_Countrymanager_DAO_WorldReg
 			$worldRegion = array();
 			while($dao->fetch()) {
 				$worldRegion[$dao->id] = array("id" => $dao->id,"name" => $dao->name);				
-
 		}		
 		return $worldRegion;
 	}

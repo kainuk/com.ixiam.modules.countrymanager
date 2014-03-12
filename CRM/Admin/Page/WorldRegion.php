@@ -18,7 +18,7 @@ class CRM_Admin_Page_WorldRegion extends CRM_Core_Page_Basic {
    * @return string Classname of BAO.
    */
   function getBAOName() {
-    return 'CRM_Countrymanager_WorldRegion';
+    return 'CRM_Countrymanager_BAO_WorldRegion';
   }
 
   /**
@@ -49,35 +49,24 @@ class CRM_Admin_Page_WorldRegion extends CRM_Core_Page_Basic {
   }
 
   function run() {    
-    $action = CRM_Utils_Request::retrieve('action', 'String', $this, FALSE, 0);
-    $this->assign('action', $action);
-    $id = CRM_Utils_Request::retrieve('id', 'Positive', $this, FALSE, 0);    
+    // $action = CRM_Utils_Request::retrieve('action', 'String', $this, FALSE, 0);
+    // $this->assign('action', $action);
+    // $id = CRM_Utils_Request::retrieve('id', 'Positive', $this, FALSE, 0);    
 
-    if (!$action) {      
-      $this->browse();
-    }
+    // if (!$action) {      
+    //   $this->browse();
+    // }
     return parent::run();
   }
 
   function browse() {    
-    $rows = CRM_Countrymanager_WorldRegion::getListWorldRegion();
-
+    $rows = CRM_Countrymanager_BAO_WorldRegion::getListWorldRegion();
+    // $params = array();
+    // $defaults = array();
+    // CRM_Core_Error::debug(CRM_Countrymanager_BAO_WorldRegion::retrieve($params,$defaults));
 
     foreach ($rows as $key => $value) {
-      $mask = NULL;
-      if (CRM_Utils_Array::value('is_reserved', $value)) {
-        $mask = CRM_Core_Action::UPDATE;
-      }
-      else {
-        $mask -= CRM_Core_Action::DELETE - 2;
-        if (CRM_Utils_Array::value('is_active', $value)) {
-          $mask -= CRM_Core_Action::ENABLE;
-        }
-        else {
-          $mask -= CRM_Core_Action::DISABLE;
-        }
-      }
-      $rows[$key]['action'] = CRM_Core_Action::formLink(self::links(), $mask,
+      $rows[$key]['action'] = CRM_Core_Action::formLink(self::links(), NULL,
         array('id' => $value['id'])
       );
     }
@@ -108,7 +97,7 @@ class CRM_Admin_Page_WorldRegion extends CRM_Core_Page_Basic {
   //  * @return string user context.
   //  */
   function userContext($mode = NULL) {
-    return 'civicrm/admin/options/subtype';
+    return 'civicrm/admin/worldregion';
   }
 }
 

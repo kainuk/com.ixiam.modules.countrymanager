@@ -78,6 +78,27 @@ class CRM_Admin_Form_WorldRegion extends CRM_Admin_Form {
    */
   public function postProcess() {
     CRM_Utils_System::flushCache();
+    if ($this->_action & CRM_Core_Action::DELETE) {    
+        CRM_Core_Session::setStatus(ts('Actually you can delete World regions.'));    
+      return;
+    }
+    // store the submitted values in an array
+    $params = $this->exportValues();
+
+
+
+    if ($this->_action & CRM_Core_Action::UPDATE) {
+      $params['id'] = $this->_id;      
+      
+    }
+    if ($this->_action & CRM_Core_Action::ADD) {
+      //$params['name'] = ucfirst(CRM_Utils_String::munge($params['label']));
+    }
+
+    $worldRegion = CRM_Countrymanager_BAO_WorldRegion::add($params);
+    CRM_Core_Session::setStatus(ts("The Worl region '%1' has been saved.",
+        array(1 => $worldRegion->name)
+      ));
 
     
   }
