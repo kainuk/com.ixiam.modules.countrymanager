@@ -20,7 +20,7 @@
     </thead>
     
     {foreach from=$rows item=row}  
-        <tr id="row_{$row.id}" class="{cycle values="odd-row,even-row"} {$row.class} crm-contactType ">
+        <tr id="row_{$row.id}" class="{cycle values="odd-row,even-row"} {$row.class} crm-worldRegion ">
         <td class="crm-worldRegion-name">{ts}{$row.name}{/ts}</td>
         <td class="crm-worldRegion-name">{ts}{$row.id}{/ts}</td>                
         <td>{$row.action|replace:'xx':$row.id}</td>
