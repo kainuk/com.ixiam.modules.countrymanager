@@ -3,7 +3,7 @@
   <file>Countrymanager</file>
   <name>Countrymanager</name>
   <description>Manage world regions, countries and states</description>
-  <license>GNU Affero General Public License | Version 3</license>
+  <license>GPLv3</license>
   <maintainer>
     <author>Ruben</author>
     <email>r.pineda@ixiam.com</email>
