@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<extension key="com.ixiam.modules.countrymanager" type="module">
+  <file>countrymanager</file>
+  <name>countrymanager</name>
+  <description>Manage world regions, countries and states</description>
+  <license>GPLv3</license>
+  <maintainer>
+    <author>Ruben</author>
+    <email>r.pineda@ixiam.com</email>
+  </maintainer>
+  <releaseDate>2014-02-28</releaseDate>
+  <version>1.0</version>
+  <develStage>alpha</develStage>
+  <compatibility>
+    <ver>4.2</ver>
+  </compatibility>
+  <comments>This is a first version from extension</comments>
+  <civix>
+    <namespace>CRM/Countrymanager</namespace>
+  </civix>
+</extension>
