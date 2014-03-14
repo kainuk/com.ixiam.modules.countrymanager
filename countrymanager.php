@@ -37,7 +37,7 @@ function countrymanager_civicrm_install() {
 	if(!empty($id_menu_lozalization)){
 
 		$menu_params = array (
-							'label' => 'Admin World Regions',
+							'label' => 'World Regions',
 							'url' => 'civicrm/admin/worldregion?reset=1&action=browse',
 							'permission' => array('administer CiviCRM'),
 							'permission_operator' => 'AND',
@@ -49,7 +49,7 @@ function countrymanager_civicrm_install() {
 		$navigation = CRM_Core_BAO_Navigation::add( $menu_params );
 
 		$menu_params = array (
-							'label' => 'Admin Countries',
+							'label' => 'Countries',
 							'url' => 'civicrm/admin/country?reset=1&action=browse',
 							'permission' => array('administer CiviCRM'),
 							'permission_operator' => 'AND',
@@ -61,7 +61,7 @@ function countrymanager_civicrm_install() {
 		$navigation = CRM_Core_BAO_Navigation::add( $menu_params );
 
 		$menu_params = array (
-							'label' => 'Admin States/Provinces',
+							'label' => 'States/Provinces',
 							'url' => 'civicrm/admin/stateprovince?reset=1&action=browse',
 							'permission' => array('access CiviCRM'),
 							'permission_operator' => 'AND',
