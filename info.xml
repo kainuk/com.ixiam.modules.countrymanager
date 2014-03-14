@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <extension key="com.ixiam.modules.countrymanager" type="module">
-  <file>Countrymanager</file>
-  <name>Countrymanager</name>
+  <file>countrymanager</file>
+  <name>countrymanager</name>
   <description>Manage world regions, countries and states</description>
   <license>GPLv3</license>
   <maintainer>
