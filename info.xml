@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
 <extension key="com.ixiam.modules.countrymanager" type="module">
   <file>countrymanager</file>
-  <name>countrymanager</name>
+  <name>Country Manager</name>
   <description>Manage world regions, countries and states</description>
   <license>GPLv3</license>
   <maintainer>
-    <author>Ruben</author>
+    <author>Ruben Pineda</author>
     <email>r.pineda@ixiam.com</email>
   </maintainer>
-  <releaseDate>2014-02-28</releaseDate>
+  <releaseDate>2014-12-15</releaseDate>
   <version>1.0</version>
-  <develStage>alpha</develStage>
+  <develStage>stable</develStage>
   <compatibility>
-    <ver>4.2</ver>
+    <ver>4.4</ver>
   </compatibility>
-  <comments>This is a first version from extension</comments>
+  <comments>Manage world regions, countries and states</comments>
   <civix>
     <namespace>CRM/Countrymanager</namespace>
   </civix>

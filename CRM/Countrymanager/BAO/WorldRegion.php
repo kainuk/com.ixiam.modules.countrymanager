@@ -1,9 +1,6 @@
 <?php
 
 class CRM_Countrymanager_BAO_WorldRegion extends CRM_Countrymanager_DAO_WorldRegion{
-	
-
-
 	static function retrieve(&$params, &$defaults) {
     $worldRegion = new CRM_Countrymanager_DAO_WorldRegion();
     $worldRegion->copyValues($params);
@@ -13,6 +10,7 @@ class CRM_Countrymanager_BAO_WorldRegion extends CRM_Countrymanager_DAO_WorldReg
     }
     return NULL;
   }
+
   static function addAndSave($params) {
 
     $worldRegion = new CRM_Countrymanager_DAO_WorldRegion();
@@ -21,7 +19,7 @@ class CRM_Countrymanager_BAO_WorldRegion extends CRM_Countrymanager_DAO_WorldReg
 
     CRM_Core_DAO::storeValues($worldRegion, $defaults);
 
-    if ($worldRegion->find(TRUE)) {      
+    if ($worldRegion->find(TRUE)) {
       return $worldRegion;
     }
 
@@ -29,21 +27,19 @@ class CRM_Countrymanager_BAO_WorldRegion extends CRM_Countrymanager_DAO_WorldReg
 
 	static function getListWorldRegion($idWorldRegion = 0) {
 		$params = array();
-			$sql = "
-			SELECT * FROM `civicrm_worldregion`
-		";
+		$sql = "SELECT * FROM `civicrm_worldregion`";
 
 		if($idWorldRegion != 0) {
 			$sql .= "WHERE	id = %1";
-			$params[1] = array($fieldId, 'Integer');	
-		}		
+			$params[1] = array($fieldId, 'Integer');
+		}
 
-			$dao = CRM_Core_DAO::executeQuery($sql, $params);
-			$worldRegion = array();
-			while($dao->fetch()) {
-				$worldRegion[$dao->id] = array("id" => $dao->id,"name" => $dao->name);				
-		}		
+		$dao = CRM_Core_DAO::executeQuery($sql, $params);
+		$worldRegion = array();
+		while($dao->fetch()) {
+			$worldRegion[$dao->id] = array("id" => $dao->id,"name" => $dao->name);
+		}
 		return $worldRegion;
 	}
-  
+
 }

@@ -28,7 +28,7 @@ class CRM_Admin_Page_Country extends CRM_Core_Page_Basic {
    */
   function &links() {
     if (!(self::$_links)) {
-      self::$_links = array( 
+      self::$_links = array(
         CRM_Core_Action::UPDATE =>
         array(
           'name' => ts('Edit'),
@@ -48,15 +48,13 @@ class CRM_Admin_Page_Country extends CRM_Core_Page_Basic {
     return self::$_links;
   }
 
-  function run() {        
+  function run() {
     return parent::run();
   }
 
-  function browse() {    
-    $region_id = CRM_Utils_Request::retrieve('region_id', 'Integer', CRM_Core_DAO::$_nullObject) ;
-    
-
-    $rows = CRM_Countrymanager_BAO_Country::getListCountry($region_id);    
+  function browse() {
+    $region_id = CRM_Utils_Request::retrieve('region_id', 'Integer', CRM_Core_DAO::$_nullObject);
+    $rows = CRM_Countrymanager_BAO_Country::getListCountry($region_id);
 
     foreach ($rows as $key => $value) {
       $rows[$key]['action'] = CRM_Core_Action::formLink(self::links(), NULL,

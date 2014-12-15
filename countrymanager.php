@@ -35,51 +35,43 @@ function countrymanager_civicrm_install() {
 
 
 	if(!empty($id_menu_lozalization)){
-
 		$menu_params = array (
-							'label' => 'World Regions',
-							'url' => 'civicrm/admin/worldregion?reset=1&action=browse',
-							'permission' => array('administer CiviCRM'),
-							'permission_operator' => 'AND',
-							'has_separator' => '0',
-							'is_active' => '1',
-							'parent_id' => $id_menu_lozalization
-						);
-
+			'label' => 'World Regions',
+			'url' => 'civicrm/admin/worldregion?reset=1&action=browse',
+			'permission' => array('administer CiviCRM'),
+			'permission_operator' => 'AND',
+			'has_separator' => '0',
+			'is_active' => '1',
+			'parent_id' => $id_menu_lozalization
+		);
 		$navigation = CRM_Core_BAO_Navigation::add( $menu_params );
 
 		$menu_params = array (
-							'label' => 'Countries',
-							'url' => 'civicrm/admin/country?reset=1&action=browse',
-							'permission' => array('administer CiviCRM'),
-							'permission_operator' => 'AND',
-							'has_separator' => '0',
-							'is_active' => '1',
-							'parent_id' => $id_menu_lozalization
-						);
-
+			'label' => 'Countries',
+			'url' => 'civicrm/admin/country?reset=1&action=browse',
+			'permission' => array('administer CiviCRM'),
+			'permission_operator' => 'AND',
+			'has_separator' => '0',
+			'is_active' => '1',
+			'parent_id' => $id_menu_lozalization
+		);
 		$navigation = CRM_Core_BAO_Navigation::add( $menu_params );
 
 		$menu_params = array (
-							'label' => 'States/Provinces',
-							'url' => 'civicrm/admin/stateprovince?reset=1&action=browse',
-							'permission' => array('access CiviCRM'),
-							'permission_operator' => 'AND',
-							'has_separator' => '0',
-							'is_active' => '1',
-							'parent_id' => $id_menu_lozalization
-						);
-
+			'label' => 'States/Provinces',
+			'url' => 'civicrm/admin/stateprovince?reset=1&action=browse',
+			'permission' => array('access CiviCRM'),
+			'permission_operator' => 'AND',
+			'has_separator' => '0',
+			'is_active' => '1',
+			'parent_id' => $id_menu_lozalization
+		);
 		$navigation = CRM_Core_BAO_Navigation::add( $menu_params );
 
-        // also reset navigation
-        CRM_Core_Menu::store( );
+    // also reset navigation
+    CRM_Core_Menu::store( );
 		CRM_Core_BAO_Navigation::resetNavigation( );
 	}
-
-
-
-
 
   return _countrymanager_civix_civicrm_install();
 }
